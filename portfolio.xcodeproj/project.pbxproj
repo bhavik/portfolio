@@ -14,6 +14,13 @@
 		2F3B448E1AF3B94300203816 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F3B448D1AF3B94300203816 /* Images.xcassets */; };
 		2F3B44911AF3B94300203816 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F3B448F1AF3B94300203816 /* LaunchScreen.xib */; };
 		2F3B449D1AF3B94300203816 /* portfolioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3B449C1AF3B94300203816 /* portfolioTests.swift */; };
+		2F3B44A81AF55B8700203816 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3B44A61AF55B8700203816 /* CustomTableViewCell.swift */; };
+		2F3B44A91AF55B8800203816 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F3B44A71AF55B8700203816 /* CustomTableViewCell.xib */; };
+		2F3B44AF1AF5731000203816 /* FriendsCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3B44AE1AF5731000203816 /* FriendsCustomTableViewCell.swift */; };
+		2F3B44B11AF5733E00203816 /* FriendsCustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F3B44B01AF5733E00203816 /* FriendsCustomTableViewCell.xib */; };
+		2F7868E71B1FB37F00269B4A /* StockDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7868E61B1FB37F00269B4A /* StockDetailViewController.swift */; };
+		2FDC11D01AF97E3E00A0E07C /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDC11CF1AF97E3E00A0E07C /* SummaryViewController.swift */; };
+		2FFAF3A11B0FC638002A94F1 /* StockManagerSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFAF3A01B0FC638002A94F1 /* StockManagerSingleton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +45,13 @@
 		2F3B44961AF3B94300203816 /* portfolioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = portfolioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F3B449B1AF3B94300203816 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F3B449C1AF3B94300203816 /* portfolioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = portfolioTests.swift; sourceTree = "<group>"; };
+		2F3B44A61AF55B8700203816 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		2F3B44A71AF55B8700203816 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		2F3B44AE1AF5731000203816 /* FriendsCustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsCustomTableViewCell.swift; sourceTree = "<group>"; };
+		2F3B44B01AF5733E00203816 /* FriendsCustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendsCustomTableViewCell.xib; sourceTree = "<group>"; };
+		2F7868E61B1FB37F00269B4A /* StockDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockDetailViewController.swift; sourceTree = "<group>"; };
+		2FDC11CF1AF97E3E00A0E07C /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
+		2FFAF3A01B0FC638002A94F1 /* StockManagerSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockManagerSingleton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,8 +95,15 @@
 			children = (
 				2F3B44841AF3B94300203816 /* AppDelegate.swift */,
 				2F3B44861AF3B94300203816 /* FirstViewController.swift */,
+				2FDC11CF1AF97E3E00A0E07C /* SummaryViewController.swift */,
 				2F3B44881AF3B94300203816 /* SecondViewController.swift */,
 				2F3B448A1AF3B94300203816 /* Main.storyboard */,
+				2F7868E61B1FB37F00269B4A /* StockDetailViewController.swift */,
+				2F3B44A61AF55B8700203816 /* CustomTableViewCell.swift */,
+				2FFAF3A01B0FC638002A94F1 /* StockManagerSingleton.swift */,
+				2F3B44AE1AF5731000203816 /* FriendsCustomTableViewCell.swift */,
+				2F3B44B01AF5733E00203816 /* FriendsCustomTableViewCell.xib */,
+				2F3B44A71AF55B8700203816 /* CustomTableViewCell.xib */,
 				2F3B448D1AF3B94300203816 /* Images.xcassets */,
 				2F3B448F1AF3B94300203816 /* LaunchScreen.xib */,
 				2F3B44821AF3B94300203816 /* Supporting Files */,
@@ -196,7 +217,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F3B448C1AF3B94300203816 /* Main.storyboard in Resources */,
+				2F3B44B11AF5733E00203816 /* FriendsCustomTableViewCell.xib in Resources */,
 				2F3B44911AF3B94300203816 /* LaunchScreen.xib in Resources */,
+				2F3B44A91AF55B8800203816 /* CustomTableViewCell.xib in Resources */,
 				2F3B448E1AF3B94300203816 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,9 +238,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F7868E71B1FB37F00269B4A /* StockDetailViewController.swift in Sources */,
+				2F3B44AF1AF5731000203816 /* FriendsCustomTableViewCell.swift in Sources */,
 				2F3B44891AF3B94300203816 /* SecondViewController.swift in Sources */,
 				2F3B44851AF3B94300203816 /* AppDelegate.swift in Sources */,
+				2F3B44A81AF55B8700203816 /* CustomTableViewCell.swift in Sources */,
 				2F3B44871AF3B94300203816 /* FirstViewController.swift in Sources */,
+				2FFAF3A11B0FC638002A94F1 /* StockManagerSingleton.swift in Sources */,
+				2FDC11D01AF97E3E00A0E07C /* SummaryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +437,7 @@
 				2F3B44A21AF3B94300203816 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2F3B44A31AF3B94300203816 /* Build configuration list for PBXNativeTarget "portfolioTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +446,7 @@
 				2F3B44A51AF3B94300203816 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
