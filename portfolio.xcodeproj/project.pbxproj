@@ -21,6 +21,18 @@
 		2F7868E71B1FB37F00269B4A /* StockDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7868E61B1FB37F00269B4A /* StockDetailViewController.swift */; };
 		2FDC11D01AF97E3E00A0E07C /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDC11CF1AF97E3E00A0E07C /* SummaryViewController.swift */; };
 		2FFAF3A11B0FC638002A94F1 /* StockManagerSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFAF3A01B0FC638002A94F1 /* StockManagerSingleton.swift */; };
+		A3273E5E1D11CABD00F72EC3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3273E5D1D11CABD00F72EC3 /* HomeViewController.swift */; };
+		A3273E601D11F66E00F72EC3 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A3273E5F1D11F66E00F72EC3 /* libsqlite3.0.dylib */; };
+		A34869B31CE94DF200FF44AE /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34869B21CE94DF200FF44AE /* Stock.swift */; };
+		A37BC4B81D0B12D5003A92FD /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37BC4B71D0B12D5003A92FD /* FBSDKCoreKit.framework */; };
+		A37BC4BA1D0B12E4003A92FD /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37BC4B91D0B12E4003A92FD /* FBSDKLoginKit.framework */; };
+		A38704671C72CE1300E7B583 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D67F3D1BD5C304004FFCE7 /* NotificationCenter.framework */; };
+		A3929A1F1C72D14B007060B2 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D67F3D1BD5C304004FFCE7 /* NotificationCenter.framework */; };
+		A3929A241C72D14B007060B2 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3929A231C72D14B007060B2 /* TodayViewController.swift */; };
+		A3929A261C72D14B007060B2 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3929A251C72D14B007060B2 /* MainInterface.storyboard */; };
+		A3929A291C72D14B007060B2 /* PortfolioBlock.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A3929A1E1C72D14B007060B2 /* PortfolioBlock.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A3D67F3E1BD5C304004FFCE7 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D67F3D1BD5C304004FFCE7 /* NotificationCenter.framework */; };
+		A3F63B4E1D13354D00C72FE2 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F63B411D13350500C72FE2 /* SQLite.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +43,77 @@
 			remoteGlobalIDString = 2F3B447E1AF3B94300203816;
 			remoteInfo = portfolio;
 		};
+		A3929A271C72D14B007060B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F3B44771AF3B94300203816 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A3929A1D1C72D14B007060B2;
+			remoteInfo = PortfolioBlock;
+		};
+		A3F63B401D13350500C72FE2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3F63B361D13350500C72FE2 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EE247AD31C3F04ED00AE3E12;
+			remoteInfo = "SQLite iOS";
+		};
+		A3F63B421D13350500C72FE2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3F63B361D13350500C72FE2 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EE247ADD1C3F04ED00AE3E12;
+			remoteInfo = "SQLiteTests iOS";
+		};
+		A3F63B441D13350500C72FE2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3F63B361D13350500C72FE2 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EE247B3C1C3F3ED000AE3E12;
+			remoteInfo = "SQLite Mac";
+		};
+		A3F63B461D13350500C72FE2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3F63B361D13350500C72FE2 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EE247B451C3F3ED000AE3E12;
+			remoteInfo = "SQLiteTests Mac";
+		};
+		A3F63B481D13350500C72FE2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3F63B361D13350500C72FE2 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 03A65E5A1C6BB0F50062603F;
+			remoteInfo = "SQLite tvOS";
+		};
+		A3F63B4A1D13350500C72FE2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3F63B361D13350500C72FE2 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 03A65E631C6BB0F60062603F;
+			remoteInfo = "SQLiteTests tvOS";
+		};
+		A3F63B4C1D13350500C72FE2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3F63B361D13350500C72FE2 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A121AC451CA35C79005A31D1;
+			remoteInfo = "SQLite watchOS";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A3929A2D1C72D14B007060B2 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A3929A291C72D14B007060B2 /* PortfolioBlock.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2F3B447F1AF3B94300203816 /* portfolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = portfolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +134,21 @@
 		2F7868E61B1FB37F00269B4A /* StockDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockDetailViewController.swift; sourceTree = "<group>"; };
 		2FDC11CF1AF97E3E00A0E07C /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
 		2FFAF3A01B0FC638002A94F1 /* StockManagerSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockManagerSingleton.swift; sourceTree = "<group>"; };
+		A3273E5D1D11CABD00F72EC3 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = ../HomeViewController.swift; sourceTree = "<group>"; };
+		A3273E5F1D11F66E00F72EC3 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		A3273E631D12090200F72EC3 /* portfolio.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = portfolio.db; sourceTree = "<group>"; };
+		A34869B21CE94DF200FF44AE /* Stock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
+		A370E7A01CF4F0B200F09C92 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		A37BC4B71D0B12D5003A92FD /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../FacebookSDKs-iOS-20150813/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
+		A37BC4B91D0B12E4003A92FD /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../FacebookSDKs-iOS-20150813/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
+		A38704661C72CE1200E7B583 /* PortfolioWIdget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PortfolioWIdget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3929A1E1C72D14B007060B2 /* PortfolioBlock.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PortfolioBlock.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3929A221C72D14B007060B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3929A231C72D14B007060B2 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		A3929A251C72D14B007060B2 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		A3D67F3B1BD5C304004FFCE7 /* portfolioWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = portfolioWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3D67F3D1BD5C304004FFCE7 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		A3F63B361D13350500C72FE2 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "SQLite.swift-master/SQLite.xcodeproj"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +156,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3F63B4E1D13354D00C72FE2 /* SQLite.framework in Frameworks */,
+				A3273E601D11F66E00F72EC3 /* libsqlite3.0.dylib in Frameworks */,
+				A37BC4BA1D0B12E4003A92FD /* FBSDKLoginKit.framework in Frameworks */,
+				A37BC4B81D0B12D5003A92FD /* FBSDKCoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,14 +170,41 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A38704631C72CE1200E7B583 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A38704671C72CE1300E7B583 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3929A1B1C72D14B007060B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3929A1F1C72D14B007060B2 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3D67F381BD5C304004FFCE7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3D67F3E1BD5C304004FFCE7 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		2F3B44761AF3B94300203816 = {
 			isa = PBXGroup;
 			children = (
+				A3273E631D12090200F72EC3 /* portfolio.db */,
 				2F3B44811AF3B94300203816 /* portfolio */,
 				2F3B44991AF3B94300203816 /* portfolioTests */,
+				A3929A201C72D14B007060B2 /* PortfolioBlock */,
+				A3D67F3C1BD5C304004FFCE7 /* Frameworks */,
 				2F3B44801AF3B94300203816 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,6 +214,9 @@
 			children = (
 				2F3B447F1AF3B94300203816 /* portfolio.app */,
 				2F3B44961AF3B94300203816 /* portfolioTests.xctest */,
+				A3D67F3B1BD5C304004FFCE7 /* portfolioWidget.appex */,
+				A38704661C72CE1200E7B583 /* PortfolioWIdget.appex */,
+				A3929A1E1C72D14B007060B2 /* PortfolioBlock.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -93,10 +224,14 @@
 		2F3B44811AF3B94300203816 /* portfolio */ = {
 			isa = PBXGroup;
 			children = (
+				A3F63B361D13350500C72FE2 /* SQLite.xcodeproj */,
+				A3273E5D1D11CABD00F72EC3 /* HomeViewController.swift */,
 				2F3B44841AF3B94300203816 /* AppDelegate.swift */,
 				2F3B44861AF3B94300203816 /* FirstViewController.swift */,
+				A370E7A01CF4F0B200F09C92 /* Bridging-Header.h */,
 				2FDC11CF1AF97E3E00A0E07C /* SummaryViewController.swift */,
 				2F3B44881AF3B94300203816 /* SecondViewController.swift */,
+				A34869B21CE94DF200FF44AE /* Stock.swift */,
 				2F3B448A1AF3B94300203816 /* Main.storyboard */,
 				2F7868E61B1FB37F00269B4A /* StockDetailViewController.swift */,
 				2F3B44A61AF55B8700203816 /* CustomTableViewCell.swift */,
@@ -136,6 +271,49 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A3929A201C72D14B007060B2 /* PortfolioBlock */ = {
+			isa = PBXGroup;
+			children = (
+				A3929A231C72D14B007060B2 /* TodayViewController.swift */,
+				A3929A251C72D14B007060B2 /* MainInterface.storyboard */,
+				A3929A211C72D14B007060B2 /* Supporting Files */,
+			);
+			path = PortfolioBlock;
+			sourceTree = "<group>";
+		};
+		A3929A211C72D14B007060B2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A3929A221C72D14B007060B2 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A3D67F3C1BD5C304004FFCE7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A3273E5F1D11F66E00F72EC3 /* libsqlite3.0.dylib */,
+				A37BC4B91D0B12E4003A92FD /* FBSDKLoginKit.framework */,
+				A37BC4B71D0B12D5003A92FD /* FBSDKCoreKit.framework */,
+				A3D67F3D1BD5C304004FFCE7 /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A3F63B371D13350500C72FE2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A3F63B411D13350500C72FE2 /* SQLite.framework */,
+				A3F63B431D13350500C72FE2 /* SQLiteTests iOS.xctest */,
+				A3F63B451D13350500C72FE2 /* SQLite.framework */,
+				A3F63B471D13350500C72FE2 /* SQLiteTests Mac.xctest */,
+				A3F63B491D13350500C72FE2 /* SQLite.framework */,
+				A3F63B4B1D13350500C72FE2 /* SQLiteTests tvOS.xctest */,
+				A3F63B4D1D13350500C72FE2 /* SQLite.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,10 +324,12 @@
 				2F3B447B1AF3B94300203816 /* Sources */,
 				2F3B447C1AF3B94300203816 /* Frameworks */,
 				2F3B447D1AF3B94300203816 /* Resources */,
+				A3929A2D1C72D14B007060B2 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A3929A281C72D14B007060B2 /* PBXTargetDependency */,
 			);
 			name = portfolio;
 			productName = portfolio;
@@ -174,12 +354,65 @@
 			productReference = 2F3B44961AF3B94300203816 /* portfolioTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		A38704651C72CE1200E7B583 /* PortfolioWIdget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A38704741C72CE1300E7B583 /* Build configuration list for PBXNativeTarget "PortfolioWIdget" */;
+			buildPhases = (
+				A38704621C72CE1200E7B583 /* Sources */,
+				A38704631C72CE1200E7B583 /* Frameworks */,
+				A38704641C72CE1200E7B583 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PortfolioWIdget;
+			productName = PortfolioWIdget;
+			productReference = A38704661C72CE1200E7B583 /* PortfolioWIdget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		A3929A1D1C72D14B007060B2 /* PortfolioBlock */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A3929A2A1C72D14B007060B2 /* Build configuration list for PBXNativeTarget "PortfolioBlock" */;
+			buildPhases = (
+				A3929A1A1C72D14B007060B2 /* Sources */,
+				A3929A1B1C72D14B007060B2 /* Frameworks */,
+				A3929A1C1C72D14B007060B2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PortfolioBlock;
+			productName = PortfolioBlock;
+			productReference = A3929A1E1C72D14B007060B2 /* PortfolioBlock.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		A3D67F3A1BD5C304004FFCE7 /* portfolioWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A3D67F4B1BD5C304004FFCE7 /* Build configuration list for PBXNativeTarget "portfolioWidget" */;
+			buildPhases = (
+				A3D67F371BD5C304004FFCE7 /* Sources */,
+				A3D67F381BD5C304004FFCE7 /* Frameworks */,
+				A3D67F391BD5C304004FFCE7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = portfolioWidget;
+			productName = portfolioWidget;
+			productReference = A3D67F3B1BD5C304004FFCE7 /* portfolioWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		2F3B44771AF3B94300203816 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0730;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = shah;
 				TargetAttributes = {
@@ -189,6 +422,15 @@
 					2F3B44951AF3B94300203816 = {
 						CreatedOnToolsVersion = 6.1;
 						TestTargetID = 2F3B447E1AF3B94300203816;
+					};
+					A38704651C72CE1200E7B583 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					A3929A1D1C72D14B007060B2 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					A3D67F3A1BD5C304004FFCE7 = {
+						CreatedOnToolsVersion = 6.4;
 					};
 				};
 			};
@@ -203,13 +445,74 @@
 			mainGroup = 2F3B44761AF3B94300203816;
 			productRefGroup = 2F3B44801AF3B94300203816 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = A3F63B371D13350500C72FE2 /* Products */;
+					ProjectRef = A3F63B361D13350500C72FE2 /* SQLite.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				2F3B447E1AF3B94300203816 /* portfolio */,
 				2F3B44951AF3B94300203816 /* portfolioTests */,
+				A3D67F3A1BD5C304004FFCE7 /* portfolioWidget */,
+				A38704651C72CE1200E7B583 /* PortfolioWIdget */,
+				A3929A1D1C72D14B007060B2 /* PortfolioBlock */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		A3F63B411D13350500C72FE2 /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = A3F63B401D13350500C72FE2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A3F63B431D13350500C72FE2 /* SQLiteTests iOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SQLiteTests iOS.xctest";
+			remoteRef = A3F63B421D13350500C72FE2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A3F63B451D13350500C72FE2 /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = A3F63B441D13350500C72FE2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A3F63B471D13350500C72FE2 /* SQLiteTests Mac.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SQLiteTests Mac.xctest";
+			remoteRef = A3F63B461D13350500C72FE2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A3F63B491D13350500C72FE2 /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = A3F63B481D13350500C72FE2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A3F63B4B1D13350500C72FE2 /* SQLiteTests tvOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SQLiteTests tvOS.xctest";
+			remoteRef = A3F63B4A1D13350500C72FE2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A3F63B4D1D13350500C72FE2 /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = A3F63B4C1D13350500C72FE2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		2F3B447D1AF3B94300203816 /* Resources */ = {
@@ -231,6 +534,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A38704641C72CE1200E7B583 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3929A1C1C72D14B007060B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3929A261C72D14B007060B2 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3D67F391BD5C304004FFCE7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -243,9 +568,11 @@
 				2F3B44891AF3B94300203816 /* SecondViewController.swift in Sources */,
 				2F3B44851AF3B94300203816 /* AppDelegate.swift in Sources */,
 				2F3B44A81AF55B8700203816 /* CustomTableViewCell.swift in Sources */,
+				A3273E5E1D11CABD00F72EC3 /* HomeViewController.swift in Sources */,
 				2F3B44871AF3B94300203816 /* FirstViewController.swift in Sources */,
 				2FFAF3A11B0FC638002A94F1 /* StockManagerSingleton.swift in Sources */,
 				2FDC11D01AF97E3E00A0E07C /* SummaryViewController.swift in Sources */,
+				A34869B31CE94DF200FF44AE /* Stock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +584,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A38704621C72CE1200E7B583 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3929A1A1C72D14B007060B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3929A241C72D14B007060B2 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3D67F371BD5C304004FFCE7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -264,6 +613,11 @@
 			isa = PBXTargetDependency;
 			target = 2F3B447E1AF3B94300203816 /* portfolio */;
 			targetProxy = 2F3B44971AF3B94300203816 /* PBXContainerItemProxy */;
+		};
+		A3929A281C72D14B007060B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A3929A1D1C72D14B007060B2 /* PortfolioBlock */;
+			targetProxy = A3929A271C72D14B007060B2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -291,6 +645,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -333,6 +688,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -368,9 +724,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"/Users/bhavikshah/code/FacebookSDKs-iOS-4.12.0",
+					"/Users/bhavikshah/code/FacebookSDKs-iOS-20150813",
+				);
 				INFOPLIST_FILE = portfolio/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "portfolio/Bridging-Header.h";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -378,9 +743,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"/Users/bhavikshah/code/FacebookSDKs-iOS-4.12.0",
+					"/Users/bhavikshah/code/FacebookSDKs-iOS-20150813",
+				);
 				INFOPLIST_FILE = portfolio/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "portfolio/Bridging-Header.h";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};
@@ -418,6 +792,99 @@
 			};
 			name = Release;
 		};
+		A38704721C72CE1300E7B583 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PortfolioWIdget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A38704731C72CE1300E7B583 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = PortfolioWIdget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		A3929A2B1C72D14B007060B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PortfolioBlock/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A3929A2C1C72D14B007060B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = PortfolioBlock/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		A3D67F491BD5C304004FFCE7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = portfolioWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A3D67F4A1BD5C304004FFCE7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = portfolioWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -444,6 +911,33 @@
 			buildConfigurations = (
 				2F3B44A41AF3B94300203816 /* Debug */,
 				2F3B44A51AF3B94300203816 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A38704741C72CE1300E7B583 /* Build configuration list for PBXNativeTarget "PortfolioWIdget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A38704721C72CE1300E7B583 /* Debug */,
+				A38704731C72CE1300E7B583 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A3929A2A1C72D14B007060B2 /* Build configuration list for PBXNativeTarget "PortfolioBlock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3929A2B1C72D14B007060B2 /* Debug */,
+				A3929A2C1C72D14B007060B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A3D67F4B1BD5C304004FFCE7 /* Build configuration list for PBXNativeTarget "portfolioWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3D67F491BD5C304004FFCE7 /* Debug */,
+				A3D67F4A1BD5C304004FFCE7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
