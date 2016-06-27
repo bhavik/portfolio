@@ -26,6 +26,7 @@
 		A34869B31CE94DF200FF44AE /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34869B21CE94DF200FF44AE /* Stock.swift */; };
 		A37BC4B81D0B12D5003A92FD /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37BC4B71D0B12D5003A92FD /* FBSDKCoreKit.framework */; };
 		A37BC4BA1D0B12E4003A92FD /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37BC4B91D0B12E4003A92FD /* FBSDKLoginKit.framework */; };
+		A38533CC1D1485CD006B3186 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38533CB1D1485CD006B3186 /* User.swift */; };
 		A38704671C72CE1300E7B583 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D67F3D1BD5C304004FFCE7 /* NotificationCenter.framework */; };
 		A3929A1F1C72D14B007060B2 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D67F3D1BD5C304004FFCE7 /* NotificationCenter.framework */; };
 		A3929A241C72D14B007060B2 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3929A231C72D14B007060B2 /* TodayViewController.swift */; };
@@ -141,6 +142,7 @@
 		A370E7A01CF4F0B200F09C92 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		A37BC4B71D0B12D5003A92FD /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../FacebookSDKs-iOS-20150813/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
 		A37BC4B91D0B12E4003A92FD /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../FacebookSDKs-iOS-20150813/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
+		A38533CB1D1485CD006B3186 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A38704661C72CE1200E7B583 /* PortfolioWIdget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PortfolioWIdget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3929A1E1C72D14B007060B2 /* PortfolioBlock.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PortfolioBlock.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3929A221C72D14B007060B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				2FDC11CF1AF97E3E00A0E07C /* SummaryViewController.swift */,
 				2F3B44881AF3B94300203816 /* SecondViewController.swift */,
 				A34869B21CE94DF200FF44AE /* Stock.swift */,
+				A38533CB1D1485CD006B3186 /* User.swift */,
 				2F3B448A1AF3B94300203816 /* Main.storyboard */,
 				2F7868E61B1FB37F00269B4A /* StockDetailViewController.swift */,
 				2F3B44A61AF55B8700203816 /* CustomTableViewCell.swift */,
@@ -573,6 +576,7 @@
 				2FFAF3A11B0FC638002A94F1 /* StockManagerSingleton.swift in Sources */,
 				2FDC11D01AF97E3E00A0E07C /* SummaryViewController.swift in Sources */,
 				A34869B31CE94DF200FF44AE /* Stock.swift in Sources */,
+				A38533CC1D1485CD006B3186 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

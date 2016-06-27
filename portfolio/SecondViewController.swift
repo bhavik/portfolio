@@ -36,7 +36,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func updateStocks() {
         let stockManager:StockManagerSingleton = StockManagerSingleton.sharedInstance
-        stockManager.updateListOfSymbols(stocks)
+      //  stockManager.updateListOfSymbols(stocks)
         
         //Repeat this method after 15 secs. (For simplicity of the tutorial we are not cancelling it never)
         dispatch_after(
