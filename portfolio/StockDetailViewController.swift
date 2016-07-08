@@ -14,6 +14,16 @@ class StockDetailViewController : UIViewController {
     var stockTickerSymbol:String!
     var stockPriceParam:String!
     var stockGainParam:String!
+    var stockCompanyName:String!
+    var stockPreviousClose:String!
+    var stockVolume:String!
+    var stockMarketCap:String!
+    var stockPeRatio:String!
+    var stockOpenPrice:String!
+    var stockAverageVolume:String!
+    var stockLowPriceYear:String!
+    var stockHighPriceYear:String!
+    
 
     @IBOutlet var stockOwnerDesc: UILabel!
     @IBOutlet var stockPrice: UILabel!

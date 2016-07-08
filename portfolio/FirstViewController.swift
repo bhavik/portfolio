@@ -10,6 +10,7 @@ import UIKit
 import SQLite
 
 
+
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet var homeTableView: UITableView!
@@ -17,6 +18,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var stockPriceParam:String!
     var stockGainParam:String!
     var myStockList: NSMutableArray = []
+    
+    //what is the difference between mystocklist and mystocks array? Try removing mystockslist and see what happens
     var myStocks: NSMutableArray = []
     
     //user detail
@@ -24,12 +27,12 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var userEmail = ""
     var userId = ""
     
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         let nib = UINib(nibName: "CustomTableViewCell", bundle:nil)
         homeTableView.registerNib(nib, forCellReuseIdentifier: "customCell")
-        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "stocksUpdated:", name: kNotificationStocksUpdated, object: nil)
         self.updateStocks()
         
@@ -135,6 +138,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 self.userId = result.valueForKey("id") as! String
                 
                 let current_user = User(userName: self.userName, userEmail: self.userEmail, userId: self.userId)
+                
+                
                 self.myStockList = self.getUserStocks(current_user)
 
             }
@@ -228,6 +233,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if (segue.identifier == "StockDetailView") {
             let viewController = segue.destinationViewController as! StockDetailViewController
             
+            //here instead of getting from param, try getting just the stock object and get all values from it? or just pass it to the view? don't pass each param.
             viewController.stockTickerSymbol = stockTickerParam
             viewController.stockPriceParam = stockPriceParam
             viewController.stockGainParam = stockGainParam

@@ -48,4 +48,5 @@ class Stock: NSObject {
         
         super.init()
     }
+    
 }
