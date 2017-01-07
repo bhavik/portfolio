@@ -26,9 +26,9 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Do any additional setup after loading the view, typically from a nib.
         let nib = UINib(nibName: "FriendsCustomTableViewCell", bundle:nil)
         
-        friendsTableView.registerNib(nib, forCellReuseIdentifier: "customCell")
+        friendsTableView.register(nib, forCellReuseIdentifier: "customCell")
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "stocksUpdated:", name: kNotificationStocksUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SecondViewController.stocksUpdated(_:)), name: NSNotification.Name(rawValue: kNotificationStocksUpdated), object: nil)
         
         self.updateStocks()
         
@@ -39,25 +39,21 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
       //  stockManager.updateListOfSymbols(stocks)
         
         //Repeat this method after 15 secs. (For simplicity of the tutorial we are not cancelling it never)
-        dispatch_after(
-            dispatch_time(
-                DISPATCH_TIME_NOW,
-                Int64(15 * Double(NSEC_PER_SEC))
-            ),
-            dispatch_get_main_queue(),
-            {
+        DispatchQueue.main.asyncAfter(
+            deadline: DispatchTime.now() + Double(Int64(15 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC),
+            execute: {
                 self.updateStocks()
             }
         )
     }
-    func stocksUpdated(notification: NSNotification) {
+    func stocksUpdated(_ notification: Notification) {
         //var values = Array<Dictionary<String,AnyObject>>()
         //values.append(notification.userInfo as!  Dictionary<String, AnyObject>)
         
         let values = (notification.userInfo as! Dictionary<String,NSArray>)
         let stocksReceived:NSArray = values[kNotificationStocksUpdated]!
         
-        stocks.removeAll(keepCapacity: false)
+        stocks.removeAll(keepingCapacity: false)
         for quote in stocksReceived {
             NSLog("inside stocksReceived")
             let quoteDict:NSDictionary = quote as! NSDictionary
@@ -84,12 +80,12 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.stocks.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell:FriendsCustomTableViewCell = self.friendsTableView.dequeueReusableCellWithIdentifier("customCell") as! FriendsCustomTableViewCell!
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell:FriendsCustomTableViewCell = self.friendsTableView.dequeueReusableCell(withIdentifier: "customCell") as! FriendsCustomTableViewCell!
         var (ticker, price, summary, dollargain, percentgain) = stocks[indexPath.row]
         
 //        switch stocks[indexPath.row].3 {
@@ -107,23 +103,23 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("you selected #\(indexPath.row)!")
         let indexPath = tableView.indexPathForSelectedRow
-        let currentCell = tableView.cellForRowAtIndexPath(indexPath!) as! FriendsCustomTableViewCell!
+        let currentCell = tableView.cellForRow(at: indexPath!) as! FriendsCustomTableViewCell!
         
-        stockTickerParam = currentCell.stockTicker.text
-        stockPriceParam = currentCell.stockPrice.text
-        stockGainParam = currentCell.stockGain.text
+        stockTickerParam = currentCell?.stockTicker.text
+        stockPriceParam = currentCell?.stockPrice.text
+        stockGainParam = currentCell?.stockGain.text
         print("ticker selected #\(stockTickerParam)")
         
-        performSegueWithIdentifier("FriendsStockDetailView", sender: self)
+        performSegue(withIdentifier: "FriendsStockDetailView", sender: self)
         
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepare(for segue: UIStoryboardSegue!, sender: Any!) {
         if (segue!.identifier == "FriendsStockDetailView") {
-            let viewController = segue!.destinationViewController as! StockDetailViewController
+            let viewController = segue!.destination as! StockDetailViewController
             
             viewController.stockTickerSymbol = stockTickerParam
             viewController.stockPriceParam = stockPriceParam

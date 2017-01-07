@@ -12,11 +12,19 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 
 class HomeViewController: UIViewController, FBSDKLoginButtonDelegate {
+    /**
+     Sent to the delegate when the button was used to login.
+     - Parameter loginButton: the sender
+     - Parameter result: The results of the login
+     - Parameter error: The error (if any) from the login
+     */
+    
+
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if (FBSDKAccessToken.currentAccessToken() == nil) {
+        if (FBSDKAccessToken.current() == nil) {
             print("Not logged in")
         }
         else {
@@ -35,17 +43,17 @@ class HomeViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     
-    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         if (error == nil) {
             print("logged in complete")
-            self.performSegueWithIdentifier("showNew", sender: self)
+            self.performSegue(withIdentifier: "showNew", sender: self)
         }
         else {
             print(error.localizedDescription)
         }
     }
     
-    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         print("user logged out")
     }
 }

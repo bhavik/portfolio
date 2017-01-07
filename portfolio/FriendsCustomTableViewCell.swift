@@ -22,7 +22,7 @@ class FriendsCustomTableViewCell:UITableViewCell {
     @IBOutlet var friendThumbNail: UIImageView!
     var toggleOff:Bool = true
 
-    func loadItem(ticker: String, price: String, summary: String, dollargain: String, percentgain: String) {
+    func loadItem(_ ticker: String, price: String, summary: String, dollargain: String, percentgain: String) {
         stockTicker.text = ticker
         stockPrice.text = price
         //stockSummary.text = summary
@@ -33,14 +33,14 @@ class FriendsCustomTableViewCell:UITableViewCell {
         stockGain.text = dollargain
         stockGain.clipsToBounds = true
         stockGain.layer.cornerRadius = 5.0
-        let tapRec = UITapGestureRecognizer(target: self, action: "toggleStockGains:")
+        let tapRec = UITapGestureRecognizer(target: self, action: #selector(FriendsCustomTableViewCell.toggleStockGains(_:)))
         stockGain.addGestureRecognizer(tapRec)
         
         //cell.textLabel.text = self.items[indexPath.row]
-        stockTicker.textColor = UIColor.whiteColor()
+        stockTicker.textColor = UIColor.white
        // stockSummary.textColor = UIColor.whiteColor()
-        stockPrice.textColor = UIColor.whiteColor()
-        stockGain.textColor = UIColor.whiteColor()
+        stockPrice.textColor = UIColor.white
+        stockGain.textColor = UIColor.white
         
         stockTicker.font = UIFont(name: "HelveticaNeue-CondensedBold", size: 16)
         //stockSummary.font = UIFont(name: "HelveticaNeue-CondensedBold", size: 14)
@@ -61,7 +61,7 @@ class FriendsCustomTableViewCell:UITableViewCell {
         
         //stockTicker.shadowOffset = CGSize(width: 0, height: 1)
     }
-    func toggleStockGains(recognizer: UITapGestureRecognizer!) {
+    func toggleStockGains(_ recognizer: UITapGestureRecognizer!) {
         print("you are in toogle method")
         if (toggleOff) {
             stockGain.text = self.percentgainString

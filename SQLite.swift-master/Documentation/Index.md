@@ -3,8 +3,8 @@
   - [Installation](#installation)
     - [Carthage](#carthage)
     - [CocoaPods](#cocoapods)
+    - [Swift Package Manager](#swift-package-manager)
     - [Manual](#manual)
-    - [Frameworkless Targets](#frameworkless-targets)
   - [Getting Started](#getting-started)
     - [Connecting to a Database](#connecting-to-a-database)
       - [Read-Write Databases](#read-write-databases)
@@ -65,7 +65,7 @@
 
 ## Installation
 
-> _Note:_ SQLite.swift requires Swift 2 (and [Xcode 7](https://developer.apple.com/xcode/downloads/)) or greater.
+> _Note:_ SQLite.swift requires Swift 3 (and [Xcode 8](https://developer.apple.com/xcode/downloads/)) or greater.
 
 
 ### Carthage
@@ -78,7 +78,7 @@ install SQLite.swift with Carthage:
  2. Update your Cartfile to include the following:
 
     ```
-    github "stephencelis/SQLite.swift" ~> 0.10.1
+    github "stephencelis/SQLite.swift" ~> 0.11.2
     ```
 
  3. Run `carthage update` and [add the appropriate framework][Carthage Usage].
@@ -93,45 +93,104 @@ install SQLite.swift with Carthage:
 
 [CocoaPods][] is a dependency manager for Cocoa projects. To install SQLite.swift with CocoaPods:
 
- 1. Make sure the latest CocoaPods beta is [installed][CocoaPods Installation]. (SQLite.swift requires version 1.0.0.beta.6 or greater.)
+ 1. Verify that your copy of Xcode is installed and active in the default location (`/Applications/Xcode.app`).
+
+    ```sh
+    sudo xcode-select --switch /Applications/Xcode.app
+    ```
+
+ 2. Make sure CocoaPods is [installed][CocoaPods Installation] (SQLite.swift requires version 1.0.0 or greater).
 
     ``` sh
     # Using the default Ruby install will require you to use sudo when
     # installing and updating gems.
-    sudo gem install --pre cocoapods
+    [sudo] gem install cocoapods
     ```
 
- 2. Update your Podfile to include the following:
+ 3. Update your Podfile to include the following:
 
     ``` ruby
     use_frameworks!
 
-    pod 'SQLite.swift', '~> 0.10.1'
+    target 'YourAppTargetName' do
+        pod 'SQLite.swift', '~> 0.11.2'
+    end
     ```
 
- 3. Run `pod install`.
+ 4. Run `pod install --repo-update`.
 
- #### Requiring a specific version of SQLite
+
+#### Requiring a specific version of SQLite
 
  If you want to use a more recent version of SQLite than what is provided with the OS you can require the `standalone` subspec:
 
 ``` ruby
-    pod 'SQLite.swift/standalone', '~> 0.10.1'
+target 'YourAppTargetName' do
+  pod 'SQLite.swift/standalone', '~> 0.11.2'
+end
 ```
 
 By default this will use the most recent version of SQLite without any extras. If you want you can further customize this by adding another dependency to sqlite3 or one of its subspecs:
 
 ``` ruby
-    pod 'SQLite.swift/standalone', '~> 0.10.1'
-    pod 'sqlite3/fts5', '= 3.11.1'  # SQLite 3.11.1 with FTS5 enabled
+target 'YourAppTargetName' do
+  pod 'SQLite.swift/standalone', '~> 0.11.2'
+  pod 'sqlite3/fts5', '= 3.15.0'  # SQLite 3.15.0 with FTS5 enabled
+end
 ```
 
 See the [sqlite3 podspec][sqlite3pod] for more details.
 
+#### Using SQLite.swift with SQLCipher
+
+If you want to use [SQLCipher][] with SQLite.swift you can require the `SQLCipher`
+subspec in your Podfile:
+
+``` ruby
+target 'YourAppTargetName' do
+  pod 'SQLite.swift/SQLCipher', '~> 0.11.2'
+end
+```
+
+This will automatically add a dependency to the SQLCipher pod as well as extend
+`Connection` with methods to change the database key:
+
+``` swift
+import SQLite
+
+let db = try Connection("path/to/db.sqlite3")
+try db.key("secret")
+try db.rekey("another secret")
+```
+
 [CocoaPods]: https://cocoapods.org
 [CocoaPods Installation]: https://guides.cocoapods.org/using/getting-started.html#getting-started
 [sqlite3pod]: https://github.com/clemensg/sqlite3pod
+[SQLCipher]: https://www.zetetic.net/sqlcipher/
 
+### Swift Package Manager
+
+The [Swift Package Manager][] is a tool for managing the distribution of Swift code.
+It’s integrated with the Swift build system to automate the process of
+downloading, compiling, and linking dependencies.
+
+It is the recommended approach for using SQLite.swift in OSX CLI applications.
+
+ 1. Add the following to your `Package.swift` file:
+
+  ``` swift
+  dependencies: [
+    .Package(url: "https://github.com/stephencelis/SQLite.swift.git", majorVersion: 0, minor: 11)
+  ]
+  ```
+
+ 2. Build your project:
+
+  ``` sh
+  $ swift build -Xlinker -lsqlite3
+  ```
+
+[Swift Package Manager]: https://swift.org/package-manager
 
 ### Manual
 
@@ -139,7 +198,7 @@ To install SQLite.swift as an Xcode sub-project:
 
  1. Drag the **SQLite.xcodeproj** file into your own project. ([Submodule](http://git-scm.com/book/en/Git-Tools-Submodules), clone, or [download](https://github.com/stephencelis/SQLite.swift/archive/master.zip) the project first.)
 
-    ![Installation Screen Shot](Documentation/Resources/installation@2x.png)
+    ![Installation Screen Shot](Resources/installation@2x.png)
 
  2. In your target’s **General** tab, click the **+** button under **Linked Frameworks and Libraries**.
 
@@ -149,24 +208,13 @@ To install SQLite.swift as an Xcode sub-project:
 
 You should now be able to `import SQLite` from any of your target’s source files and begin using SQLite.swift.
 
+Some additional steps are required to install the application on an actual device:
 
-### Frameworkless Targets
+ 5. In the **General** tab, click the **+** button under **Embedded Binaries**.
 
-It’s possible to use SQLite.swift in a target that doesn’t support frameworks, including iOS 7 apps and OS X command line tools, though it takes a little extra work.
+ 6. Select the appropriate **SQLite.framework** for your platform.
 
- 1. In your target’s **Build Phases**, add **libsqlite3.dylib** to the **Link Binary With Libraries** build phase.
-
- 2. Copy the SQLite.swift source files (from its **SQLite** directory) into your Xcode project.
-
- 3. Add the following lines to your project’s [bridging header](https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html#//apple_ref/doc/uid/TP40014216-CH10-XID_79) (a file usually in the form of `$(TARGET_NAME)-Bridging-Header.h`).
-
-    ``` swift
-    #import <sqlite3.h>
-    #import "SQLite-Bridging.h"
-    ```
-
-> _Note:_ Adding SQLite.swift source files directly to your application will both remove the `SQLite` module namespace (no need—or ability—to `import SQLite`) and expose internal functions and variables. You will need to rename anything that conflicts with code of your own. Please [report any bugs](https://github.com/stephencelis/SQLite.swift/issues/new) (_e.g._, segfaults) you encounter.
-
+ 7. **Add**.
 
 ## Getting Started
 
@@ -192,7 +240,7 @@ On iOS, you can create a writable database in your app’s **Documents** directo
 
 ``` swift
 let path = NSSearchPathForDirectoriesInDomains(
-    .DocumentDirectory, .UserDomainMask, true
+    .documentDirectory, .userDomainMask, true
 ).first!
 
 let db = try Connection("\(path)/db.sqlite3")
@@ -202,11 +250,11 @@ On OS X, you can use your app’s **Application Support** directory:
 
 ``` swift
 var path = NSSearchPathForDirectoriesInDomains(
-    .ApplicationSupportDirectory, .UserDomainMask, true
-).first! + NSBundle.mainBundle().bundleIdentifier!
+    .applicationSupportDirectory, .userDomainMask, true
+).first! + Bundle.main.bundleIdentifier!
 
 // create parent directory iff it doesn’t exist
-try NSFileManager.defaultManager().createDirectoryAtPath(
+try FileManager.default.createDirectoryAtPath(
     path, withIntermediateDirectories: true, attributes: nil
 )
 
@@ -219,13 +267,13 @@ let db = try Connection("\(path)/db.sqlite3")
 If you bundle a database with your app (_i.e._, you’ve copied a database file into your Xcode project and added it to your application target), you can establish a _read-only_ connection to it.
 
 ``` swift
-let path = NSBundle.mainBundle().pathForResource("db", ofType: "sqlite3")!
+let path = Bundle.main.pathForResource("db", ofType: "sqlite3")!
 
 let db = try Connection(path, readonly: true)
 ```
 
 > _Note:_ Signed applications cannot modify their bundle resources. If you bundle a database file with your app for the purpose of bootstrapping, copy it to a writable location _before_ establishing a connection (see [Read-Write Databases](#read-write-databases), above, for typical, writable locations).
-> 
+>
 > See these two Stack Overflow questions for more information about iOS apps with SQLite databases: [1](https://stackoverflow.com/questions/34609746/what-different-between-store-database-in-different-locations-in-ios), [2](https://stackoverflow.com/questions/34614968/ios-how-to-copy-pre-seeded-database-at-the-first-running-app-with-sqlite-swift). We welcome sample code to show how to successfully copy and use a bundled "seed" database for writing in an app.
 
 #### In-Memory Databases
@@ -233,13 +281,13 @@ let db = try Connection(path, readonly: true)
 If you omit the path, SQLite.swift will provision an [in-memory database](https://www.sqlite.org/inmemorydb.html).
 
 ``` swift
-let db = try Connection() // equivalent to `Connection(.InMemory)`
+let db = try Connection() // equivalent to `Connection(.inMemory)`
 ```
 
 To create a temporary, disk-backed database, pass an empty file name.
 
 ``` swift
-let db = try Connection(.Temporary)
+let db = try Connection(.temporary)
 ```
 
 In-memory databases are automatically deleted when the database connection is closed.
@@ -367,7 +415,7 @@ The `column` function is used for a single column definition. It takes an [expre
     t.column(id, primaryKey: true)
     // "id" INTEGER PRIMARY KEY NOT NULL
 
-    t.column(id, primaryKey: .Autoincrement)
+    t.column(id, primaryKey: .autoincrement)
     // "id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL
     ```
 
@@ -375,7 +423,7 @@ The `column` function is used for a single column definition. It takes an [expre
     >
     > Primary keys cannot be optional (_e.g._, `Expression<Int64?>`).
     >
-    > Only an `INTEGER PRIMARY KEY` can take `.Autoincrement`.
+    > Only an `INTEGER PRIMARY KEY` can take `.autoincrement`.
 
   - `unique` adds a `UNIQUE` constraint to the column. (See the `unique` function under [Table Constraints](#table-constraints) for uniqueness over multiple columns).
 
@@ -403,10 +451,10 @@ The `column` function is used for a single column definition. It takes an [expre
   - `collate` adds a `COLLATE` clause to `Expression<String>` (and `Expression<String?>`) column definitions with [a collating sequence](https://www.sqlite.org/datatype3.html#collation) defined in the `Collation` enumeration.
 
     ``` swift
-    t.column(email, collate: .Nocase)
+    t.column(email, collate: .nocase)
     // "email" TEXT NOT NULL COLLATE "NOCASE"
 
-    t.column(name, collate: .Rtrim)
+    t.column(name, collate: .rtrim)
     // "name" TEXT COLLATE "RTRIM"
     ```
 
@@ -454,7 +502,7 @@ Additional constraints may be provided outside the scope of a single column usin
   - `foreignKey` adds a `FOREIGN KEY` constraint to the table. Unlike [the `references` constraint, above](#column-constraints), it supports all SQLite types, both [`ON UPDATE` and `ON DELETE` actions](https://www.sqlite.org/foreignkeys.html#fk_actions), and composite (multiple column) keys.
 
     ``` swift
-    t.foreignKey(user_id, references: users, id, delete: .SetNull)
+    t.foreignKey(user_id, references: users, id, delete: .setNull)
     // FOREIGN KEY("user_id") REFERENCES "users"("id") ON DELETE SET NULL
     ```
 
@@ -471,7 +519,7 @@ We can insert rows into a table by calling a [query’s](#queries) `insert` func
 try db.run(users.insert(email <- "alice@mac.com", name <- "Alice"))
 // INSERT INTO "users" ("email", "name") VALUES ('alice@mac.com', 'Alice')
 
-try db.run(users.insert(or: .Replace, email <- "alice@mac.com", name <- "Alice B."))
+try db.run(users.insert(or: .replace, email <- "alice@mac.com", name <- "Alice B."))
 // INSERT OR REPLACE INTO "users" ("email", "name") VALUES ('alice@mac.com', 'Alice B.')
 ```
 
@@ -637,7 +685,7 @@ users.join(posts, on: user_id == users[id])
 // SELECT * FROM "users" INNER JOIN "posts" ON ("user_id" = "users"."id")
 ```
 
-The `join` function takes a [query](#queries) object (for the table being joined on), a join condition (`on`), and is prefixed with an optional join type (default: `.Inner`). Join conditions can be built using [filter operators and functions](#filter-operators-and-functions), generally require [namespacing](#column-namespacing), and sometimes require [aliasing](#table-aliasing).
+The `join` function takes a [query](#queries) object (for the table being joined on), a join condition (`on`), and is prefixed with an optional join type (default: `.inner`). Join conditions can be built using [filter operators and functions](#filter-operators-and-functions), generally require [namespacing](#column-namespacing), and sometimes require [aliasing](#table-aliasing).
 
 
 ##### Column Namespacing
@@ -713,8 +761,12 @@ users.filter(verified || balance >= 10_000)
 
 We can build our own boolean expressions by using one of the many [filter operators and functions](#filter-operators-and-functions).
 
-> _Note:_ SQLite.swift defines `filter` instead of `where` because `where` is [a reserved keyword](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/LexicalStructure.html#//apple_ref/doc/uid/TP40014097-CH30-ID413).
+Instead of `filter` we can also use the `where` function which is an alias:
 
+``` swift
+users.where(id == 1)
+// SELECT * FROM "users" WHERE ("id" = 1)
+```
 
 ##### Filter Operators and Functions
 
@@ -996,10 +1048,10 @@ The `addColumn` function shares several of the same [`column` function parameter
   - `collate` adds a `COLLATE` clause to `Expression<String>` (and `Expression<String?>`) column definitions with [a collating sequence](https://www.sqlite.org/datatype3.html#collation) defined in the `Collation` enumeration.
 
     ``` swift
-    try db.run(users.addColumn(email, collate: .Nocase))
+    try db.run(users.addColumn(email, collate: .nocase))
     // ALTER TABLE "users" ADD COLUMN "email" TEXT NOT NULL COLLATE "NOCASE"
 
-    try db.run(users.addColumn(name, collate: .Rtrim))
+    try db.run(users.addColumn(name, collate: .rtrim))
     // ALTER TABLE "users" ADD COLUMN "name" TEXT COLLATE "RTRIM"
     ```
 
@@ -1076,11 +1128,24 @@ try db.run(users.drop(ifExists: true))
 ```
 
 
-<!-- ### Migrations and Schema Versioning
+### Migrations and Schema Versioning
 
-SQLite.swift provides a convenience property on `Database` to query and set the [`PRAGMA user_version`](https://sqlite.org/pragma.html#pragma_schema_version). This is a great way to manage your schema’s version over migrations.
+You can add a convenience property on `Connection` to query and set the [`PRAGMA user_version`](https://sqlite.org/pragma.html#pragma_user_version).
+
+This is a great way to manage your schema’s version over migrations.
 
 ``` swift
+extension Connection {
+    public var userVersion: Int32 {
+        get { return Int32(try! scalar("PRAGMA user_version") as! Int64)}
+        set { try! run("PRAGMA user_version = \(newValue)") }
+    }
+}
+```
+
+Then you can conditionally run your migrations along the lines of:
+
+```swift
 if db.userVersion == 0 {
     // handle first migration
     db.userVersion = 1
@@ -1089,8 +1154,10 @@ if db.userVersion == 1 {
     // handle second migration
     db.userVersion = 2
 }
-``` -->
+```
 
+For more complex migration requirements check out the schema management system
+[SQLiteMigrationManager.swift][].
 
 ## Custom Types
 
@@ -1114,16 +1181,16 @@ Once extended, the type can be used [_almost_](#custom-type-caveats) wherever ty
 
 ### Date-Time Values
 
-In SQLite, `DATETIME` columns can be treated as strings or numbers, so we can transparently bridge `NSDate` objects through Swift’s `String` or `Int` types.
+In SQLite, `DATETIME` columns can be treated as strings or numbers, so we can transparently bridge `Date` objects through Swift’s `String` or `Int` types.
 
-To serialize `NSDate` objects as `TEXT` values (in ISO 8601), we’ll use `String`.
+To serialize `Date` objects as `TEXT` values (in ISO 8601), we’ll use `String`.
 
 ``` swift
-extension NSDate: Value {
+extension Date: Value {
     class var declaredDatatype: String {
         return String.declaredDatatype
     }
-    class func fromDatatypeValue(stringValue: String) -> NSDate {
+    class func fromDatatypeValue(stringValue: String) -> Date {
         return SQLDateFormatter.dateFromString(stringValue)!
     }
     var datatypeValue: String {
@@ -1131,11 +1198,11 @@ extension NSDate: Value {
     }
 }
 
-let SQLDateFormatter: NSDateFormatter = {
-    let formatter = NSDateFormatter()
+let SQLDateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
     formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
-    formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-    formatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
+    formatter.locale = Locale(localeIdentifier: "en_US_POSIX")
+    formatter.timeZone = TimeZone(forSecondsFromGMT: 0)
     return formatter
 }()
 ```
@@ -1143,12 +1210,12 @@ let SQLDateFormatter: NSDateFormatter = {
 We can also treat them as `INTEGER` values using `Int`.
 
 ``` swift
-extension NSDate: Value {
+extension Date: Value {
     class var declaredDatatype: String {
         return Int.declaredDatatype
     }
     class func fromDatatypeValue(intValue: Int) -> Self {
-        return self(timeIntervalSince1970: NSTimeInterval(intValue))
+        return self(timeIntervalSince1970: TimeInterval(intValue))
     }
     var datatypeValue: Int {
         return Int(timeIntervalSince1970)
@@ -1161,9 +1228,9 @@ extension NSDate: Value {
 Once defined, we can use these types directly in SQLite statements.
 
 ``` swift
-let published_at = Expression<NSDate>("published_at")
+let published_at = Expression<Date>("published_at")
 
-let published = posts.filter(published_at <= NSDate())
+let published = posts.filter(published_at <= Date())
 // extension where Datatype == String:
 //     SELECT * FROM "posts" WHERE "published_at" <= '2014-11-18 12:45:30'
 // extension where Datatype == Int:
@@ -1173,34 +1240,15 @@ let published = posts.filter(published_at <= NSDate())
 
 ### Binary Data
 
-Any object that can be encoded and decoded can be stored as a blob of data in SQL.
-
-We can create an `NSData` bridge rather trivially.
+We can bridge any type that can be initialized from and encoded to `Data`.
 
 ``` swift
-extension NSData: Value {
-    class var declaredDatatype: String {
-        return Blob.declaredDatatype
-    }
-    class func fromDatatypeValue(blobValue: Blob) -> Self {
-        return self(bytes: blobValue.bytes, length: blobValue.length)
-    }
-    var datatypeValue: Blob {
-        return Blob(bytes: bytes, length: length)
-    }
-}
-```
-
-We can bridge any type that can be initialized from and encoded to `NSData`.
-
-``` swift
-// assumes NSData conformance, above
 extension UIImage: Value {
     public class var declaredDatatype: String {
         return Blob.declaredDatatype
     }
     public class func fromDatatypeValue(blobValue: Blob) -> UIImage {
-        return UIImage(data: NSData.fromDatatypeValue(blobValue))!
+        return UIImage(data: Data.fromDatatypeValue(blobValue))!
     }
     public var datatypeValue: Blob {
         return UIImagePNGRepresentation(self)!.datatypeValue
@@ -1367,14 +1415,14 @@ We can create custom collating sequences by calling `createCollation` on a datab
 
 ``` swift
 try db.createCollation("NODIACRITIC") { lhs, rhs in
-    return lhs.compare(rhs, options: .DiacriticInsensitiveSearch)
+    return lhs.compare(rhs, options: .diacriticInsensitiveSearch)
 }
 ```
 
 We can reference a custom collation using the `Custom` member of the `Collation` enumeration.
 
 ``` swift
-restaurants.order(collate(.Custom("NODIACRITIC"), name))
+restaurants.order(collate(.custom("NODIACRITIC"), name))
 // SELECT * FROM "restaurants" ORDER BY "name" COLLATE "NODIACRITIC"
 ```
 
@@ -1409,7 +1457,7 @@ let config = FTS4Config()
     .column(subject)
     .column(body, [.unindexed])
     .languageId("lid")
-    .order(.Desc)
+    .order(.desc)
 
 try db.run(emails.create(.FTS4(config))
 // CREATE VIRTUAL TABLE "emails" USING fts4("subject", "body", notindexed="body", languageid="lid", order="desc")
@@ -1445,6 +1493,13 @@ let config = FTS5Config()
 
 try db.run(emails.create(.FTS5(config))
 // CREATE VIRTUAL TABLE "emails" USING fts5("subject", "body" UNINDEXED)
+
+// Note that FTS5 uses a different syntax to select columns, so we need to rewrite
+// the last FTS4 query above as:
+let replies = emails.filter(emails.match("subject:\"Re:\"*))
+// SELECT * FROM "emails" WHERE "emails" MATCH 'subject:"Re:"*'
+
+// https://www.sqlite.org/fts5.html#_changes_to_select_statements_
 ```
 
 ## Executing Arbitrary SQL
@@ -1529,3 +1584,4 @@ We can log SQL using the database’s `trace` function.
 
 
 [ROWID]: https://sqlite.org/lang_createtable.html#rowid
+[SQLiteMigrationManager.swift]: https://github.com/garriguv/SQLiteMigrationManager.swift
