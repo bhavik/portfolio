@@ -30,12 +30,17 @@
 		A3929A261C72D14B007060B2 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3929A251C72D14B007060B2 /* MainInterface.storyboard */; };
 		A3929A291C72D14B007060B2 /* PortfolioBlock.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A3929A1E1C72D14B007060B2 /* PortfolioBlock.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A3D67F3E1BD5C304004FFCE7 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D67F3D1BD5C304004FFCE7 /* NotificationCenter.framework */; };
+<<<<<<< HEAD
 		FFB394AD1E2153B500A09D58 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB394A01E21539100A09D58 /* SQLite.framework */; };
 		FFB394AF1E2153CB00A09D58 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB394AE1E2153CB00A09D58 /* libsqlite3.0.tbd */; };
 		FFDD94F31E1EA1D7004F14A1 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFDD94F21E1EA1D7004F14A1 /* Bolts.framework */; };
 		FFDD94F51E1EA1EB004F14A1 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFDD94F41E1EA1EB004F14A1 /* FBSDKCoreKit.framework */; };
 		FFDD94F71E1EA1F8004F14A1 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFDD94F61E1EA1F8004F14A1 /* FBSDKLoginKit.framework */; };
 		FFDD94F91E1EA207004F14A1 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFDD94F81E1EA207004F14A1 /* FBSDKShareKit.framework */; };
+=======
+		A3E61E041D240B7D00184ACC /* StocksUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E61E031D240B7C00184ACC /* StocksUtil.swift */; };
+		A3F63B4E1D13354D00C72FE2 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F63B411D13350500C72FE2 /* SQLite.framework */; };
+>>>>>>> b7b89f24ab81c35bffae391fc7d5a6ab01b31b00
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,12 +155,17 @@
 		A3929A251C72D14B007060B2 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		A3D67F3B1BD5C304004FFCE7 /* portfolioWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = portfolioWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3D67F3D1BD5C304004FFCE7 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+<<<<<<< HEAD
 		FFB394951E21539100A09D58 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "SQLite.swift-master/SQLite.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		FFB394AE1E2153CB00A09D58 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		FFDD94F21E1EA1D7004F14A1 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "FacebookSDKs-iOS-4.18.0/Bolts.framework"; sourceTree = "<group>"; };
 		FFDD94F41E1EA1EB004F14A1 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "FacebookSDKs-iOS-4.18.0/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
 		FFDD94F61E1EA1F8004F14A1 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "FacebookSDKs-iOS-4.18.0/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
 		FFDD94F81E1EA207004F14A1 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "FacebookSDKs-iOS-4.18.0/FBSDKShareKit.framework"; sourceTree = "<group>"; };
+=======
+		A3E61E031D240B7C00184ACC /* StocksUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StocksUtil.swift; sourceTree = "<group>"; };
+		A3F63B361D13350500C72FE2 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "SQLite.swift-master/SQLite.xcodeproj"; sourceTree = SOURCE_ROOT; };
+>>>>>>> b7b89f24ab81c35bffae391fc7d5a6ab01b31b00
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +247,7 @@
 				A3273E5D1D11CABD00F72EC3 /* HomeViewController.swift */,
 				2F3B44841AF3B94300203816 /* AppDelegate.swift */,
 				2F3B44861AF3B94300203816 /* FirstViewController.swift */,
+				A3E61E031D240B7C00184ACC /* StocksUtil.swift */,
 				A370E7A01CF4F0B200F09C92 /* Bridging-Header.h */,
 				2FDC11CF1AF97E3E00A0E07C /* SummaryViewController.swift */,
 				2F3B44881AF3B94300203816 /* SecondViewController.swift */,
@@ -586,6 +597,7 @@
 				2F3B44A81AF55B8700203816 /* CustomTableViewCell.swift in Sources */,
 				A3273E5E1D11CABD00F72EC3 /* HomeViewController.swift in Sources */,
 				2F3B44871AF3B94300203816 /* FirstViewController.swift in Sources */,
+				A3E61E041D240B7D00184ACC /* StocksUtil.swift in Sources */,
 				2FFAF3A11B0FC638002A94F1 /* StockManagerSingleton.swift in Sources */,
 				2FDC11D01AF97E3E00A0E07C /* SummaryViewController.swift in Sources */,
 				A34869B31CE94DF200FF44AE /* Stock.swift in Sources */,
