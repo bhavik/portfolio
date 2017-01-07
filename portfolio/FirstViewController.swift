@@ -32,14 +32,10 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         let nib = UINib(nibName: "CustomTableViewCell", bundle:nil)
-<<<<<<< HEAD
+
         homeTableView.register(nib, forCellReuseIdentifier: "customCell")
         
         NotificationCenter.default.addObserver(self, selector: #selector(FirstViewController.stocksUpdated(_:)), name: NSNotification.Name(rawValue: kNotificationStocksUpdated), object: nil)
-=======
-        homeTableView.registerNib(nib, forCellReuseIdentifier: "customCell")
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "stocksUpdated:", name: kNotificationStocksUpdated, object: nil)
->>>>>>> b7b89f24ab81c35bffae391fc7d5a6ab01b31b00
         self.updateStocks()
         
     }

@@ -11,6 +11,13 @@ import SQLite
 
 class StocksUtil {
     
+    //user detail
+    var userName = ""
+    var userEmail = ""
+    var userId = ""
+    var myStockList: NSMutableArray = []
+    
+
     class var sharedInstance : StocksUtil {
         struct Static {
             static let instance : StocksUtil = StocksUtil()
@@ -54,7 +61,7 @@ class StocksUtil {
             for userStocks in try db.prepare(query) {
                 print("inside userStocks")
                 let stockSymbol = userStocks[symbol]
-                stock_list.addObject(stockSymbol)
+                stock_list.add(stockSymbol)
                 print("symbol is", stockSymbol)
             }
         }
@@ -67,20 +74,16 @@ class StocksUtil {
     func updateStocks() {
         print("Inside updateStocks")
         let stockManager:StockManagerSingleton = StockManagerSingleton.sharedInstance
-        //let currentUser : User = getUserInfo()
-        //myStockList = getUserStocks(currentUser)
         getUserInfo()
+        
         stockManager.updateListOfSymbols(myStockList)
         
         //Repeat this method after 15 secs. (For simplicity of the tutorial we are not cancelling it never)
-        dispatch_after(
-            dispatch_time(
-                DISPATCH_TIME_NOW,
-                Int64(65 * Double(NSEC_PER_SEC))
-            ),
-            dispatch_get_main_queue(), {
+        DispatchQueue.main.asyncAfter(
+            deadline: DispatchTime.now() + Double(Int64(65 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC),
+            execute: {
                 self.updateStocks()
-            }
+        }
         )
     }
     
@@ -88,27 +91,31 @@ class StocksUtil {
         print("Inside getUserInfo")
         let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"id,email,name"])
         
-        graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+        graphRequest.start(completionHandler: { (connection, result, error) -> Void in
             if ((error) != nil) {
                 // Process error
                 print("Error: \(error)")
             }
             else {
+                let data:[String:AnyObject] = result as! [String : AnyObject]
+                
+                
                 print("fetched user: \(result)")
-                self.userName = result.valueForKey("name") as! String
+                self.userName = data["name"] as! String
                 print("self.userEmail", self.userEmail)
+                
                 print("User Name is: \(self.userName)")
-                self.userEmail  = result.valueForKey("email") as! String
+                self.userEmail  = data["email"] as! String
                 print("User Email is: \(self.userEmail)")
-                self.userId = result.valueForKey("id") as! String
+                self.userId = data["id"] as! String
                 
                 let current_user = User(userName: self.userName, userEmail: self.userEmail, userId: self.userId)
-                self.myStockList = self.getUserStocks(current_user)
+                self.myStockList = self.getUserStocks(currentUser: current_user)
             }
         })
         print("Finished getUserInfo")
     }
-    getStockBySymbol(stockSymbol:String) -> Stock {
+   // getStockBySymbol(stockSymbol:String) -> Stock {
     // should return stock object given the symbol, how to do this?
-    }
+   // }
 }

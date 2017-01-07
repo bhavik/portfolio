@@ -56,7 +56,7 @@ class StockManagerSingleton {
                     //5: Extract the Quotes and Values and send them inside a NSNotification
                     let quotes:NSArray = (((jsonDict as AnyObject).object(forKey: "query") as! NSDictionary).object(forKey: "results") as! NSDictionary).object(forKey: "quote") as! NSArray
                     
-                    //print("Value for key1 is", quotes["LastTradePriceOnly"])
+                    sprint("Value for key1 is", quotes["LastTradePriceOnly"])
                     
                     
                     DispatchQueue.main.async(execute: {
